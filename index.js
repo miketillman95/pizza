@@ -4,6 +4,12 @@ const port = 3010
 
 server.use(express.json())
 
+const pizzaRouter = require('./db/api/pizza/pizza-router')
+const toppingsRouter = require('./db/api/toppings/toppings-router')
+
+
+server.use('/api/pizza',pizzaRouter)
+server.use('/api/toppings',toppingsRouter)
 
 
 
