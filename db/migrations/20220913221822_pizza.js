@@ -2,9 +2,9 @@
 exports.up = function(knex) {
     return knex.schema.createTable('pizza', tbl => {
       tbl.increments("id");
-      tbl.string('pepperoni_pizza', 255)
-      tbl.string('veggie_pizza', 255)
-      tbl.string('meat_pizza', 255)
+      tbl.string('type', 128).notNullable()
+      tbl.integer('amount', 100).notNullable()
+      tbl.boolean('buy_more').notNullable()
       tbl.timestamps(true, true)
   
     })
@@ -12,6 +12,6 @@ exports.up = function(knex) {
 
 
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('toppings');
+    return knex.schema.dropTableIfExists('pizza');
 
 };
