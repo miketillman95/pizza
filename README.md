@@ -8,6 +8,7 @@ It should allow me to add a new topping
 It should allow me to delete an existing topping
 It should allow me to update an existing topping
 It should not allow me to enter duplicate toppings
+<!-- add in middleware here later -->
 
 <!-- table for toppings, table for pizzas  -->
 Manage Pizzas
@@ -28,7 +29,3 @@ Your project should be deployed to a service of your choice. If you need some re
 
 '
 commands:
-node index.js to start server
-node pgDb.js to connect DB?
-
-'

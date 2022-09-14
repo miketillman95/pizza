@@ -19,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "migrate": "npx knex migrate:latest  db/knexfile.js",
+    "server": "node index.js"
   },
   "eslintConfig": {
     "extends": [
