@@ -1,8 +1,10 @@
 const express = require('express')
 const server = express()
 const port = 3010
+const cors = require('cors')
 
 server.use(express.json())
+server.use(cors())
 
 const pizzaRouter = require('./db/api/pizza/pizza-router')
 const toppingsRouter = require('./db/api/toppings/toppings-router')

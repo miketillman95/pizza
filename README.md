@@ -4,6 +4,7 @@ As a pizza store owner I should be able to manage toppings available for my pizz
 <!-- create a store owner section that will be able to manage the toppings of the pizza. CRUD functionailty for the toppings -->
 
 It should allow me to see a list of available toppings
+<!-- add state for each crud operation -->
 It should allow me to add a new topping
 It should allow me to delete an existing topping
 It should allow me to update an existing topping
