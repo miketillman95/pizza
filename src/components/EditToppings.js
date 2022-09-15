@@ -1,48 +1,54 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 
 
 const EditToppings = () => {
-    const [addTop, setAddTop] = useState('')
-    const [deleteTop, setDeleteTop] = useState('')
-
+    const [type, setType] = useState('')
+    const [deleteType, setDeletetype] = useState('')
     const navigate = useNavigate()
 
-    const handleAdd = (e) => {
-        e.preventDfault()
-        
-        fetch("http://localhost:3010/api/toppings", {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(addTop)
-        }).then(() => {
-            console.log('topping added')
-            navigate('/owner')
-        }).catch(error => {
-            error.status(500).json({
-            message: error
-            });
-        })
-           
+    const handleAdd = async (e) => {
+        e.preventDefault()
+        try{
+          const res = await axios.post("http://localhost:3010/api/toppings", {type:type})
+          console.log(res.data)
+          
+          navigate('/owner')
+        } catch(err){
+
+          console.log(err.response)
+        }
       }
 
-      const handleDelete = (e) => {
-        e.preventDfault()
+
+
+      const handleDelete = async  (e) => {
+        e.preventDefault()
         
-        fetch("http://localhost:3010/api/toppings", {
-            method: 'DELETE',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(deleteTop)
-        }).then(() => {
-            console.log('topping deleted')
-            navigate('/owner')
-        }).catch(error => {
-            error.status(500).json({
-            message: error
-            });
-        })
+        // fetch("http://localhost:3010/api/toppings", {
+        //     method: 'DELETE',
+        //     headers: {'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'
+        //   },
+        //     body: JSON.stringify(type)
+        // }).then(() => {
+        //     console.log('topping deleted')
+        //     navigate('/owner')
+        // }).catch(err => {
+        //     throw new Error(err.message)
+        //     });
+
+        try{
+          const res = await axios.delete(`http://localhost:3010/api/topping/:id`, {type})
+          console.log(res.data)
+          navigate('/owner')
+        } catch(err){
+
+          console.log(err.response)
+        }
+
     }
 
   return (
@@ -54,8 +60,8 @@ const EditToppings = () => {
         <input 
         required
         type='text'
-        value={addTop}
-        onChange={(e) => setAddTop(e.target.value)}
+        value={type}
+        onChange={(e) => setType(e.target.value)}
         />
         <button>Add</button>
         </form>
@@ -67,10 +73,10 @@ const EditToppings = () => {
         <input 
         required
         type='text'
-        value={deleteTop}
-        onChange={(e) => setDeleteTop(e.target.value)}
+        value={deleteType}
+        onChange={(e) => setDeletetype(e.target.value)}
         />
-        <button>Add</button>
+        <button>Delete</button>
         </form>
       </div>
   </div>

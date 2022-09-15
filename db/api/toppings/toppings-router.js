@@ -1,5 +1,6 @@
 const Toppings = require('./toppings-model')
 const router = require('express').Router()
+const cors = require('cors')
 // works
 router.get('/', (req, res) => {
     Toppings.find(req.query)
@@ -35,17 +36,15 @@ router.get('/:id', (req, res) => {
 });  // return the item object with the matching id (working)
 
 
-router.post('/', (req, res) => {
+router.post('/',  (req, res) => {
     Toppings.add(req.body)
     .then(toppings => {
         console.log("success",req.body)
         res.status(201).json(toppings)
     })
-    .catch(error => {
+    .catch(toppings => {
       console.log("failed correctly?", error)
-        res.status(200).json({
-        message: 'adding the toppings',
-        });
+        res.status(200).json(toppings);
   });
 }) // return the added item object
 

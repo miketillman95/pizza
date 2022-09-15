@@ -33,5 +33,4 @@ commands:
 npx knex migrate:make 
 migrate:rollback
 
-npx knex seed:rollback
-seed:run
+npx knex seed:run

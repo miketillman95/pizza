@@ -14,7 +14,6 @@ function findBy(filter){
 }
 
 function findById(id){
-	console.log("in the model findById", id)
 	return db("toppings")
 		.select("*")
 		.where({ id })
@@ -22,9 +21,8 @@ function findById(id){
 }
 
 async function add(toppings){
-	console.log("in the model add", toppings)
 	const [id] = await db("toppings").insert(toppings, "id")
-	return findById([id]);
+	return findById(id);
 }
 
 const remove = (id) =>{
