@@ -2,9 +2,9 @@
 exports.up = function(knex) {
   return knex.schema.createTable('toppings', tbl => {
     tbl.increments("id");
-    tbl.string('type', 128).notNullable()
-    tbl.string('amount').notNullable()
-    tbl.boolean('buy_more').notNullable()
+    tbl.string('type', 128)
+    tbl.string('amount')
+    tbl.boolean('buy_more')
     tbl.timestamps(true, true)
 
   })

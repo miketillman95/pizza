@@ -24,8 +24,7 @@ function findById(id){
 async function add(toppings){
 	console.log("in the model add", toppings)
 	const [id] = await db("toppings").insert(toppings, "id")
-	console.log(id)
-	return findById(id);
+	return findById([id]);
 }
 
 const remove = (id) =>{
