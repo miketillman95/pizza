@@ -30,3 +30,8 @@ Your project should be deployed to a service of your choice. If you need some re
 
 '
 commands:
+npx knex migrate:make 
+migrate:rollback
+
+npx knex seed:rollback
+seed:run

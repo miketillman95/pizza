@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
 
 export default function Owner () {
   const [toppings, setToppings] = useState(null);
@@ -16,8 +17,8 @@ export default function Owner () {
         }
         return response.json();
       })
-      .then((actualtoppings) => {
-        setToppings(actualtoppings);
+      .then((toppings) => {
+        setToppings(toppings);
         setError(null);
       })
       .catch((err) => {
@@ -29,6 +30,9 @@ export default function Owner () {
       });
   }, []);
 
+ 
+
+
   return (
     <div className="Owner">
       <h1>Pizza Toppings</h1>
@@ -36,6 +40,7 @@ export default function Owner () {
       {error && (
         <div>{`There is a problem fetching the post toppings - ${error}`}</div>
       )}
+      <div className='pizza-display'>
       <ul>
         {toppings &&
           toppings.map(({ id, type }) => (
@@ -44,6 +49,12 @@ export default function Owner () {
             </li>
           ))}
       </ul>
+      </div>
+      <br/>
+             <Link to='/edit'><button>Edit the toppings</button>
+             </Link> 
+          
+        
     </div>
   );
 }
