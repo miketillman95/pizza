@@ -42,9 +42,9 @@ router.post('/', (req, res) => {
         res.status(201).json(toppings)
     })
     .catch(error => {
-      console.log("failure", error)
-        res.status(500).json({
-        message: 'Error adding the toppings',
+      console.log("failed correctly?", error)
+        res.status(200).json({
+        message: 'adding the toppings',
         });
   });
 }) // return the added item object

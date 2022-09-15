@@ -1,20 +1,22 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import EditToppings from './components/EditToppings';
-import Home from './components/Home'
-import Owner from './components/Owner';
+
+import AppRouter from './AppRouter';
+
 
 
 
 function App() {
   return (
-   <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/owner' element={<Owner/>}/>
-      <Route path='/edit' element={<EditToppings/>}></Route>
-      {/* <Route path='/chef' element={<Chef/>}/> */}
-    </Routes>
-   </BrowserRouter>
+
+    <div>
+      <ul>
+      <li><a href="/">Home</a></li>
+        <li><a href="/owner">Owner</a></li>
+        <li><a href="/edit">Edit toppings</a></li>
+        <li><a href="/chef">Chef</a></li>
+      </ul>
+    <AppRouter/>
+    </div>
+
   );
 }
 
