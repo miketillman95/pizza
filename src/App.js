@@ -11,11 +11,14 @@ function App() {
       <ul>
       <li><a href="/">Home</a></li>
       <br/>
-        <li><a href="/owner">Pizza Owner</a></li>
+        <li><a href="/owner">Pizza Owner(Toppings)</a></li>
         <br/>
-        <li><a href="/edit">Edit toppings</a></li>
+        <li><a href="/edittoppings">Edit toppings</a></li>
         <br/>
-        <li><a href="/chef">Pizza Chef</a></li>
+        <li><a href="/chef">Pizza Chef(Pizza)</a></li>
+        <br/>
+        <li><a href="/editpizza">Edit Pizzas</a></li>
+
       </ul>
     <AppRouter/>
     </div>

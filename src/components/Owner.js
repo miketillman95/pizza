@@ -51,7 +51,7 @@ export default function Owner () {
       </ul>
       </div>
       <br/>
-             <Link to='/edit'><button>Edit the toppings</button>
+             <Link to='/edittoppings'><button>Edit the toppings</button>
              </Link> 
           
         

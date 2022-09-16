@@ -35,7 +35,7 @@ export default function Owner () {
 
   return (
     <div className="Owner">
-      <h1>Pizza pizza</h1>
+      <h1>Type of pizzas</h1>
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the post pizza - ${error}`}</div>
@@ -43,15 +43,17 @@ export default function Owner () {
       <div className='pizza-display'>
       <ul>
         {pizza &&
-          pizza.map(({ id, type }) => (
+          pizza.map(({ id, type, toppings }) => (
             <li key={id}>
               <h3>{type}</h3>
+              <h3>{toppings}</h3>
+
             </li>
           ))}
       </ul>
       </div>
       <br/>
-             <Link to='/edit'><button>Edit the pizza</button>
+             <Link to='/editpizza'><button>Edit the pizza</button>
              </Link> 
           
         

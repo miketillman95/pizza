@@ -1,6 +1,6 @@
 const Toppings = require('./toppings-model')
 const router = require('express').Router()
-const cors = require('cors')
+
 // works
 router.get('/', (req, res) => {
     Toppings.find(req.query)
