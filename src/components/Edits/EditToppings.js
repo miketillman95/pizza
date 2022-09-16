@@ -5,19 +5,18 @@ import axios from 'axios'
 
 
 
-const EditPizza = () => {
+const EditToppings = () => {
     const [type, setType] = useState('')
     const [deleteType, setDeletetype] = useState('')
-    const [toppings, setToppings] = useState('')
     const navigate = useNavigate()
 
     const handleAdd = async (e) => {
         e.preventDefault()
         try{
-          const res = await axios.post("http://localhost:3010/api/pizza", {type:type, toppings:toppings})
+          const res = await axios.post("http://localhost:3010/api/toppings", {type:type})
           console.log(res.data)
           
-          navigate('/chef')
+          navigate('/owner')
         } catch(err){
 
           console.log(err.response)
@@ -31,9 +30,9 @@ const EditPizza = () => {
         
 
         try{
-          const res = await axios.delete(`http://localhost:3010/api/pizza/:id`, {type:deleteType, toppings: toppings})
+          const res = await axios.delete(`http://localhost:3010/api/topping/:id`, {type: deleteType})
           console.log(res.data)
-          navigate('/chef')
+          navigate('/owner')
         } catch(err){
 
           console.log(err.response)
@@ -42,11 +41,11 @@ const EditPizza = () => {
     }
 
   return (
-    <div className ='edit-pizza container'>
-    <h2>edit pizza</h2>
+    <div className ='edit-topping container'>
+    <h2>edit toppings</h2>
       <div>
         <form onSubmit={handleAdd}>
-        <label>Add pizza</label><br/>
+        <label>Add topping</label><br/>
         <input 
         required
         type='text'
@@ -58,23 +57,8 @@ const EditPizza = () => {
       </div>
 
       <div>
-        <form onSubmit={handleAdd}>
-        <label>Add toppings</label><br/>
-   
-
-        <input
-        required
-        type='text'
-        value={toppings}
-        onChange={(e) => setToppings(e.target.value)}
-        />
-        <button>Add</button>
-        </form>
-      </div>
-<br/>
-      <div>
       <form onSubmit={handleDelete}>
-        <label>delete pizza</label><br/>
+        <label>delete toppings</label><br/>
         <input 
         required
         type='text'
@@ -88,4 +72,4 @@ const EditPizza = () => {
   )
 }
 
-export default EditPizza
+export default EditToppings

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 
 
 
-const EditToppings = () => {
+const EditPizza = () => {
     const [type, setType] = useState('')
     const [deleteType, setDeletetype] = useState('')
     const navigate = useNavigate()
@@ -13,10 +13,10 @@ const EditToppings = () => {
     const handleAdd = async (e) => {
         e.preventDefault()
         try{
-          const res = await axios.post("http://localhost:3010/api/toppings", {type:type})
+          const res = await axios.post("http://localhost:3010/api/pizza", {type:type, })
           console.log(res.data)
           
-          navigate('/owner')
+          navigate('/chef')
         } catch(err){
 
           console.log(err.response)
@@ -30,9 +30,9 @@ const EditToppings = () => {
         
 
         try{
-          const res = await axios.delete(`http://localhost:3010/api/topping/:id`, {deleteType: deleteType})
+          const res = await axios.delete(`http://localhost:3010/api/pizza/:id`, {type:deleteType,} )
           console.log(res.data)
-          navigate('/owner')
+          navigate('/chef')
         } catch(err){
 
           console.log(err.response)
@@ -41,11 +41,11 @@ const EditToppings = () => {
     }
 
   return (
-    <div className ='edit-topping container'>
-    <h2>edit toppings</h2>
+    <div className ='edit-pizza container'>
+    <h2>edit pizza</h2>
       <div>
         <form onSubmit={handleAdd}>
-        <label>Add topping</label><br/>
+        <label>Add pizza</label><br/>
         <input 
         required
         type='text'
@@ -56,9 +56,12 @@ const EditToppings = () => {
         </form>
       </div>
 
+    <div>
+       
+    </div>
       <div>
       <form onSubmit={handleDelete}>
-        <label>delete toppings</label><br/>
+        <label>delete pizza</label><br/>
         <input 
         required
         type='text'
@@ -68,8 +71,28 @@ const EditToppings = () => {
         <button>Delete</button>
         </form>
       </div>
+
+     {/* <div>
+        <form onSubmit={handleAdd}>
+        <label>Add toppings</label><br/>
+   
+
+        <input
+        required
+        type='text'
+        value={toppings}
+        onChange={(e) => setToppings(e.target.value)}
+        />
+        <button>Add</button>
+        </form>
+      </div>
+<br/> */}
+
+<br/>
+       <Link to='/updatepizza'> <button> Update pizza</button></Link>
+
   </div>
   )
 }
 
-export default EditToppings
+export default EditPizza

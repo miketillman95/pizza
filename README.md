@@ -18,7 +18,7 @@ As a pizza chef I should be able to create new pizza master pieces
 <!--  create a -->
 
 It should allow me to see a list of existing pizzas and their toppings$
-It should allow me to create a new pizza and add toppings to it$
+It should allow me to create a new pizza and add toppings to it
 It should allow me to delete an existing pizza
 It should allow me to update an existing pizza
 It should allow me to update toppings on an existing pizza
