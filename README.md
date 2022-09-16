@@ -29,3 +29,5 @@ npx knex migrate:make
 migrate:rollback
 
 npx knex seed:run
+
+npm i to run

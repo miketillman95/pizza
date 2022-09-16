@@ -25,12 +25,12 @@ const EditToppings = () => {
 
 
 
-      const handleDelete = async  (e) => {
+      const handleDelete = async  (id, e) => {
         e.preventDefault()
         
 
         try{
-          const res = await axios.delete(`http://localhost:3010/api/topping/:id`, {type: deleteType})
+          const res = await axios.delete(`http://localhost:3010/api/topping/${id}`, {type: deleteType})
           console.log(res.data)
           navigate('/owner')
         } catch(err){

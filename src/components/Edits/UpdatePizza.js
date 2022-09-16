@@ -21,6 +21,7 @@ const UpdatePizza = () => {
     const index = pizzaClone.indexOf(pizza);
     pizzaClone[index] = { ...pizza };
     setPizza(pizzaClone);
+    // couldnt figure out the issue on update or delete
   };
 
 
@@ -50,7 +51,8 @@ const UpdatePizza = () => {
               >
                 </input>
                   <button
-                    onClick={() => handleUpdate(pizza)}                  >
+                    onClick={() => handleUpdate(pizza)}
+                  >
                     Update
                   </button>
                 </form>

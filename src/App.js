@@ -1,4 +1,4 @@
-
+import './index.css'
 import AppRouter from './AppRouter';
 
 
@@ -7,7 +7,7 @@ import AppRouter from './AppRouter';
 function App() {
   return (
 
-    <div>
+    <div className='navbar'>
       <ul>
       <li><a href="/">Home</a></li>
       <br/>
