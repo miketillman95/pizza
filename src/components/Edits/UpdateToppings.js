@@ -2,43 +2,43 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const UpdatePizza = () => {
-  const [pizza, setPizza] = useState([]);
-  const apiEndPoint = "http://localhost:3010/api/pizza";
+  const [toppings, setToppings] = useState([]);
+  const apiEndPoint = "http://localhost:3010/api/toppings";
   useEffect(() => {
-    const getPizza = async () => {
-      const { data: res } = await axios.get(apiEndPoint, {type:pizza});
-      setPizza(res);
+    const getToppings = async () => {
+      const { data: res } = await axios.get(apiEndPoint, {type:toppings});
+      setToppings(res);
     };
-    getPizza();
-  }, [pizza]);
+    getToppings();
+  }, [toppings]);
 
   
 
-  const handleUpdate = async (pizza) => {
-    pizza.type = "Updated";
-    await axios.put(apiEndPoint + "/" + pizza.id);
-    const pizzaClone = [...pizza];
-    const index = pizzaClone.indexOf(pizza);
-    pizzaClone[index] = { ...pizza };
-    setPizza(pizzaClone);
+  const handleUpdate = async (toppings) => {
+    toppings.type = "Updated";
+    await axios.put(apiEndPoint + "/" + toppings.id);
+    const toppingsClone = [...toppings];
+    const index = toppingsClone.indexOf(toppings);
+    toppingsClone[index] = { ...toppings };
+    setToppings(toppingsClone);
   };
 
 
 
-  if (pizza.length === 0) return <h2> there are no pizza in the Database </h2>;
+  if (toppings.length === 0) return <h2> there are no toppings in the Database </h2>;
   return (
     <>
       <div className="container">
         <table className="table">
           <thead>
             <tr>
-              <th>type</th>
+              <th>toppings</th>
               <th>Update</th>
             </tr>
           </thead>
           <tbody>
             
-            {pizza.map((update) => (
+            {toppings.map((update) => (
       
               <tr>
                 <td> {update.type} </td>
@@ -50,7 +50,8 @@ const UpdatePizza = () => {
               >
                 </input>
                   <button
-                    onClick={() => handleUpdate(pizza)}                  >
+                    onClick={() => handleUpdate(toppings)}
+                  >
                     Update
                   </button>
                 </form>

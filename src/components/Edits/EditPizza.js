@@ -25,12 +25,13 @@ const EditPizza = () => {
 
 
 
-      const handleDelete = async  (e) => {
+      const handleDelete = async  (id,e) => {
         e.preventDefault()
-        
+        console.log(e)
+
 
         try{
-          const res = await axios.delete(`http://localhost:3010/api/pizza/:id`, {type:deleteType,} )
+          const res = await axios.delete(`http://localhost:3010/api/pizza/${id}`, {type: deleteType})
           console.log(res.data)
           navigate('/chef')
         } catch(err){
@@ -41,7 +42,7 @@ const EditPizza = () => {
     }
 
   return (
-    <div className ='edit-pizza container'>
+    <div className ='edit-pizza-container'>
     <h2>edit pizza</h2>
       <div>
         <form onSubmit={handleAdd}>
@@ -89,7 +90,7 @@ const EditPizza = () => {
 <br/> */}
 
 <br/>
-       <Link to='/updatepizza'> <button> Update pizza</button></Link>
+       <Link to='/updatepizza'> Update Pizza</Link>
 
   </div>
   )

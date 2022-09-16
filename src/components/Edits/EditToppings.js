@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios'
 
 
@@ -67,6 +67,9 @@ const EditToppings = () => {
         />
         <button>Delete</button>
         </form>
+        <br/>
+        <Link to='/updatetoppings'> Update Toppings</Link>
+       
       </div>
   </div>
   )

@@ -5,6 +5,7 @@ import Owner from './components/Owner';
 import Chef from './components/Chef'
 import EditPizza from './components/Edits/EditPizza';
 import UpdatePizza from './components/Edits/UpdatePizza'
+import UpdateToppings from './components/Edits/UpdateToppings'
 
 
 
@@ -18,6 +19,8 @@ function AppRouter() {
       <Route path='/editpizza' element={<EditPizza/>}></Route>
       <Route path='/chef' element={<Chef/>}/>
       <Route path='/updatepizza' element={<UpdatePizza/>}/>
+      <Route path='/updatetoppings' element={<UpdateToppings/>}/>
+
 
     </Routes>
    </BrowserRouter>
