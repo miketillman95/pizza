@@ -4,7 +4,7 @@ exports.up = function(knex) {
       tbl.increments("id");
       // All the way at the finish line and think i was supposed to reference toppings in the other table?
       // and maybe a join table in building the query? So you can tcontrol the pizza and toppings together?
-      tbl.string('type', 128).references('toppings.toppings')
+      tbl.string('type', 128).references('toppings.type')
       tbl.string('toppings', 100)
       tbl.boolean('buy_more')
       tbl.timestamps(true, true)
