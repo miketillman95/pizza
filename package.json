@@ -25,9 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "migrate": "npx knex migrate:latest  db/knexfile.js",
-    "server": "node index.js",
-    "startnode": "cd db && npm install && node index.js",
-    "heroku-postbuild": "cd src && npm install && npm run build"
+    "server": "node index.js"
   },
   "eslintConfig": {
     "extends": [
