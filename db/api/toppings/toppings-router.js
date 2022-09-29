@@ -42,10 +42,12 @@ router.post('/',  (req, res) => {
         console.log("success",req.body)
         res.status(201).json(toppings)
     })
-    .catch(toppings => {
-      console.log("failed correctly?", error)
-        res.status(200).json(toppings);
-  });
+    .catch(error => {
+        console.log("failure, but works somehow", error)
+          res.status(200).json({
+          message: error
+          });
+    });
 }) // return the added item object
 
 // works
