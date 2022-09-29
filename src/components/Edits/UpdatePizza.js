@@ -16,8 +16,8 @@ const apiEndPoint = "http://localhost:3010/api/pizza";
 
 
 
-const handleUpdate = async (e, pizza) => {
-    e.preventDefault()
+const handleUpdatePizza = async (pizza) => {
+    // e.preventDefault()
     console.log(pizza)
     pizza.type = "Updated";
     await axios.put(apiEndPoint + "/" + pizza.id);
@@ -42,28 +42,26 @@ return (
 					</tr>
 				</thead>
 				<tbody>
-					<form>
 						{pizza.map((update) => (
-
 						<tr>
 							<td> {update.type} </td>
 								<td>
-									<input
-									required
-									type='text'
-									>
-									</input>
-								<button type= 'submit' onClick={(e) => handleUpdate(e, pizza)}> Update </button>
+									<form>
+										<input
+										required
+										type='text'
+										>
+										</input>
+									<button type= 'button' onClick={() => handleUpdatePizza( pizza)}> Update </button>
+									</form>
 								</td>
 						</tr>
 						))}
-					</form>
-
 				</tbody>
 			</table>
 		</div>
 	</>
-  );
+);
 };
 
 export default UpdatePizza;

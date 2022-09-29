@@ -11,7 +11,7 @@ import UpdateToppings from './components/Edits/UpdateToppings'
 
 function AppRouter() {
   return (
-   <BrowserRouter>
+  <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/owner' element={<Owner/>}/>
@@ -20,10 +20,8 @@ function AppRouter() {
       <Route path='/chef' element={<Chef/>}/>
       <Route path='/updatepizza' element={<UpdatePizza/>}/>
       <Route path='/updatetoppings' element={<UpdateToppings/>}/>
-
-
     </Routes>
-   </BrowserRouter>
+  </BrowserRouter>
   );
 }
 

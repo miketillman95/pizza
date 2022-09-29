@@ -14,7 +14,7 @@ useEffect(() => {
 }, [toppings]);
 
 
-const handleUpdate = async (toppings) => {
+const handleUpdateToppings = async (toppings) => {
     toppings.type = "Updated";
     await axios.put(apiEndPoint + "/" + toppings.id);
     const toppingsClone = [...toppings];
@@ -37,22 +37,20 @@ return (
 				</tr>
 			</thead>
 			<tbody>
-
 				{toppings.map((update) => (
-
 					<tr>
-					<td> {update.type} </td>
-					<td>
-						<form>
-							<input
-							required
-							type='text'
-							>
-							</input>
-							<button type='button'
-							onClick={() => handleUpdate(toppings)}>Update </button>
-						</form>
-					</td>
+						<td> {update.type} </td>
+						<td>
+							<form>
+								<input
+								required
+								type='text'
+								>
+								</input>
+								<button type='button'
+								onClick={() => handleUpdateToppings(toppings)}>Update </button>
+							</form>
+						</td>
 					</tr>
 				))}
 			</tbody>

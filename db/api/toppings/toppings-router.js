@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     })
     .catch(err => {
         res.status(500).json({
-            message: 'canot get toppings'
+        message: 'canot get toppings'
         })
     })
 
@@ -20,17 +20,17 @@ router.get('/:id', (req, res) => {
     Toppings.findById(req.params.id)
     .then(toppings => {
         if(toppings) {
-            res.status(200).json({toppings})
+        res.status(200).json({toppings})
         } else {
             res.status(404).json({
-                message: 'toppings not found'
+            message: 'toppings not found'
             })
         }
     })
     .catch(err => {
         console.log("failure", error)
         res.status(500).json({
-            message: 'Error retrieving toppings'
+        message: 'Error retrieving toppings'
         })
     })
 });  // return the item object with the matching id (working)
@@ -44,9 +44,9 @@ router.post('/',  (req, res) => {
     })
     .catch(error => {
         console.log("failure, but works somehow", error)
-          res.status(200).json({
-          message: error
-          });
+        res.status(200).json({
+        message: error
+        });
     });
 }) // return the added item object
 

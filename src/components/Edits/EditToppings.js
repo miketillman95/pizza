@@ -10,31 +10,27 @@ const [type, setType] = useState('')
 const [deleteType, setDeletetype] = useState('')
 const navigate = useNavigate()
 
-const handleAdd = async (e) => {
+const handleAddToppings = async (e) => {
 e.preventDefault()
 try{
 	const res = await axios.post("http://localhost:3010/api/toppings", {type:type})
 	console.log(res.data)
-
-	navigate('/owner')
+	navigate('/chef')
 } catch(err){
-
 	console.log(err.response)
 }
 }
 
 
 
-const handleDelete = async  (id, e) => {
+const handleDeleteToppings = async  (id, e) => {
 	e.preventDefault()
-
-
+	console.log(id)
 	try{
 		const res = await axios.delete(`http://localhost:3010/api/topping/${id}`, {type: deleteType})
 		console.log(res.data)
-		navigate('/owner')
+		navigate('/chef')
 	} catch(err){
-
 		console.log(err.response)
 	}
 
@@ -44,7 +40,7 @@ return (
 	<div className ='edit-topping container'>
 		<h2>edit toppings</h2>
 		<div>
-			<form onSubmit={handleAdd}>
+			<form onSubmit={handleAddToppings}>
 				<label>Add topping</label><br/>
 				<input 
 				required
@@ -57,7 +53,7 @@ return (
 		</div>
 
 		<div>
-		<form onSubmit={handleDelete}>
+		<form onSubmit={handleDeleteToppings}>
 			<label>delete toppings</label><br/>
 			<input 
 			required

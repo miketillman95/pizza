@@ -10,13 +10,14 @@ const [type, setType] = useState('')
 const [deleteType, setDeletetype] = useState('')
 const navigate = useNavigate()
 
+
 const handleAddPizza = async (e) => {
 	e.preventDefault()
 	try{
 	const res = await axios.post("http://localhost:3010/api/pizza", {type:type })
 	console.log(res.data)
 
-	navigate('/chef')
+	navigate('/owner')
 } catch(err){
 
 	console.log(err.response)
@@ -33,7 +34,7 @@ console.log(e)
 try{
 	const res = await axios.delete(`http://localhost:3010/api/pizza/${id}`, {type: deleteType})
 	console.log(res.data)
-	navigate('/chef')
+	navigate('/owner')
 } catch(err){
 
 	console.log(err.response)
