@@ -71,6 +71,7 @@ router.delete('/:id', (req, res) => {
 
 // works
 router.put('/:id', (req, res) => {
+    console.log(req.body)
    const changes = req.body
     Pizza.update(req.params.id, changes)
     .then(pizza => {

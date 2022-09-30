@@ -91,7 +91,7 @@ return (
 	<Link to='/updatepizza'> Update Pizza</Link>
 
 </div>
-  )
+)
 }
 
 export default EditPizza

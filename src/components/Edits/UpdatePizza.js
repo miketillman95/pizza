@@ -3,34 +3,37 @@ import { useState, useEffect } from "react";
 
 const UpdatePizza = () => {
 
-const [pizza, setPizza] = useState([]);
+const [pizzas, setPizzas] = useState([]);
+const [topping, setTopping] = useState("")
 
 const apiEndPoint = "http://localhost:3010/api/pizza";
 	useEffect(() => {
 	const getPizza = async () => {
-		const { data: res } = await axios.get(apiEndPoint, {type:pizza});
-		setPizza(res);
+		const { data: res } = await axios.get(apiEndPoint, {type:pizzas});
+		setPizzas(res);
 		};
 		getPizza();
-	}, [pizza]);
+	}, []);
 
 
 
-const handleUpdatePizza = async (pizza) => {
-    // e.preventDefault()
-    console.log(pizza)
-    pizza.type = "Updated";
-    await axios.put(apiEndPoint + "/" + pizza.id);
-    const pizzaClone = [...pizza];
-    const index = pizzaClone.indexOf(pizza);
-    pizzaClone[index] = { ...pizza };
-    setPizza(pizzaClone);
+const handleUpdatePizza = async (pizzId, updatedTopping) => {
+	if(!updatedTopping) return
+
+	console.log(pizzas.id)
+	console.log(pizzId)
+    const results = await axios.put(apiEndPoint + "/" + pizzId, {type: updatedTopping});
+	console.log(results)
+    const pizzaClone = [...pizzas];
+    const index = pizzaClone.indexOf(pizzas);
+    pizzaClone[index] = { ...pizzas };
+    setPizzas(pizzaClone);
     // couldnt figure out the issue on update or delete
 };
 
 
 
-if (pizza.length === 0) return <h2> there are no pizza in the Database </h2>;
+if (pizzas.length === 0) return <h2> there are no pizzas in the Database </h2>;
 return (
 	<>
 		<div className="container">
@@ -42,17 +45,17 @@ return (
 					</tr>
 				</thead>
 				<tbody>
-						{pizza.map((update) => (
+						{pizzas.map((pizza) => (
 						<tr>
-							<td> {update.type} </td>
+							<td> {pizza.type} </td>
 								<td>
 									<form>
 										<input
 										required
 										type='text'
-										>
-										</input>
-									<button type= 'button' onClick={() => handleUpdatePizza( pizza)}> Update </button>
+										onChange={(e) => setTopping(e.target.value)}
+										/>
+									<button type= 'button' onClick={() => handleUpdatePizza(pizza.id, topping)}> Update </button>
 									</form>
 								</td>
 						</tr>
