@@ -15,7 +15,7 @@ e.preventDefault()
 try{
 	const res = await axios.post("http://localhost:3010/api/toppings", {type:type})
 	console.log(res.data)
-	navigate('/chef')
+	navigate('/owner')
 } catch(err){
 	console.log(err.response)
 }
@@ -23,13 +23,12 @@ try{
 
 
 
-const handleDeleteToppings = async  (id, e) => {
-	e.preventDefault()
-	console.log(id)
+const handleDeleteToppings = async  (toppingsId) => {
+	console.log(toppingsId)
 	try{
-		const res = await axios.delete(`http://localhost:3010/api/topping/${id}`, {type: deleteType})
+		const res = await axios.delete(`http://localhost:3010/api/topping` + '/' + toppingsId, {type: deleteType})
 		console.log(res.data)
-		navigate('/chef')
+		// navigate('/owner')
 	} catch(err){
 		console.log(err.response)
 	}
@@ -45,7 +44,6 @@ return (
 				<input 
 				required
 				type='text'
-				value={type}
 				onChange={(e) => setType(e.target.value)}
 				/>
 				<button type='submit'>Add</button>
@@ -58,7 +56,6 @@ return (
 			<input 
 			required
 			type='text'
-			value={deleteType}
 			onChange={(e) => setDeletetype(e.target.value)}
 			/>
 			<button type='submit'>Delete</button>

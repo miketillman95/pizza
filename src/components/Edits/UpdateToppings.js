@@ -24,6 +24,7 @@ if (!updatedTopping) return
 	const index = toppingClone.indexOf(toppings)
 	toppingClone[index] = {...toppings}
 	setToppings(toppingClone)
+	window.location.reload()
 };
 
 

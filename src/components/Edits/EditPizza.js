@@ -17,7 +17,7 @@ const handleAddPizza = async (e) => {
 	const res = await axios.post("http://localhost:3010/api/pizza", {type:type })
 	console.log(res.data)
 
-	navigate('/owner')
+	navigate('/chef')
 } catch(err){
 
 	console.log(err.response)
@@ -34,7 +34,7 @@ console.log(e)
 try{
 	const res = await axios.delete(`http://localhost:3010/api/pizza/${id}`, {type: deleteType})
 	console.log(res.data)
-	navigate('/owner')
+	navigate('/chef')
 } catch(err){
 
 	console.log(err.response)

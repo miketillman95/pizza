@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const UpdatePizza = () => {
 
 const [pizzas, setPizzas] = useState([]);
-const [topping, setTopping] = useState("")
+const [typeOfPizza, setTypeOfPizza] = useState("")
 
 const apiEndPoint = "http://localhost:3010/api/pizza";
 	useEffect(() => {
@@ -17,16 +17,19 @@ const apiEndPoint = "http://localhost:3010/api/pizza";
 
 
 
-const handleUpdatePizza = async (pizzId, updatedTopping) => {
-if(!updatedTopping) return
+const handleUpdatePizza = async (pizzaId, updatedtypeOfPizza) => {
+if(!updatedtypeOfPizza) return
     console.log(pizzas.id)
-	console.log(pizzId)
-    const results = await axios.put(apiEndPoint + "/" + pizzId, {type: updatedTopping});
+	console.log(pizzaId)
+    const results = await axios.put(apiEndPoint + "/" + pizzaId, {type: updatedtypeOfPizza});
 	console.log(results)
     const pizzaClone = [...pizzas];
     const index = pizzaClone.indexOf(pizzas);
     pizzaClone[index] = { ...pizzas };
     setPizzas(pizzaClone);
+	window.location.reload();
+	
+
 };
 
 
@@ -51,9 +54,9 @@ return (
 										<input
 										required
 										type='text'
-										onChange={(e) => setTopping(e.target.value)}
+										onChange={(e) => setTypeOfPizza(e.target.value)}
 										/>
-									<button type= 'button' onClick={() => handleUpdatePizza(pizza.id, topping)}> Update </button>
+									<button type= 'button' onClick={() => handleUpdatePizza(pizza.id, typeOfPizza)}> Update </button>
 									</form>
 								</td>
 						</tr>
