@@ -18,9 +18,8 @@ const apiEndPoint = "http://localhost:3010/api/pizza";
 
 
 const handleUpdatePizza = async (pizzId, updatedTopping) => {
-	if(!updatedTopping) return
-
-	console.log(pizzas.id)
+if(!updatedTopping) return
+    console.log(pizzas.id)
 	console.log(pizzId)
     const results = await axios.put(apiEndPoint + "/" + pizzId, {type: updatedTopping});
 	console.log(results)
@@ -28,12 +27,11 @@ const handleUpdatePizza = async (pizzId, updatedTopping) => {
     const index = pizzaClone.indexOf(pizzas);
     pizzaClone[index] = { ...pizzas };
     setPizzas(pizzaClone);
-    // couldnt figure out the issue on update or delete
 };
 
 
 
-if (pizzas.length === 0) return <h2> there are no pizzas in the Database </h2>;
+if (pizzas.length === 0) return <h2> Pizzas are loading or if problem consist server issue </h2>;
 return (
 	<>
 		<div className="container">

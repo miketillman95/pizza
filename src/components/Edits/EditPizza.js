@@ -26,7 +26,7 @@ const handleAddPizza = async (e) => {
 
 
 
-const handledeletePizza = async  (id,e) => {
+const handleDeletePizza = async  (id,e) => {
 e.preventDefault()
 console.log(e)
 
@@ -59,7 +59,7 @@ return (
 	</div>
 
 	<div>
-		<form onSubmit={handledeletePizza}>
+		<form onSubmit={handleDeletePizza}>
 			<label>delete pizza</label><br/>
 			<input 
 			required
@@ -67,7 +67,7 @@ return (
 			value={deleteType}
 			onChange={(e) => setDeletetype(e.target.value)}
 			/>
-			<button type='submit'>Delete</button>
+			<button onClick={() => handleDeletePizza()} type='submit'>Delete</button>
 		</form>
 	</div>
 

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 const UpdatePizza = () => {
 const [toppings, setToppings] = useState([]);
+const [topping, setTopping] = useState("")
+
 
 const apiEndPoint = "http://localhost:3010/api/toppings";
 useEffect(() => {
@@ -14,18 +16,19 @@ useEffect(() => {
 }, [toppings]);
 
 
-const handleUpdateToppings = async (toppings) => {
-    toppings.type = "Updated";
-    await axios.put(apiEndPoint + "/" + toppings.id);
-    const toppingsClone = [...toppings];
-    const index = toppingsClone.indexOf(toppings);
-    toppingsClone[index] = { ...toppings };
-    setToppings(toppingsClone);
+const handleUpdateToppings = async (toppingsId, updatedTopping) => {
+if (!updatedTopping) return
+	const results = await axios.put(apiEndPoint + '/' + toppingsId, {type: updatedTopping})
+	console.log(results)
+	const toppingClone = [...toppings]
+	const index = toppingClone.indexOf(toppings)
+	toppingClone[index] = {...toppings}
+	setToppings(toppingClone)
 };
 
 
 
-if (toppings.length === 0) return <h2> there are no toppings in the Database </h2>;
+if (toppings.length === 0) return <h2> Toppings are loading or if issue persist check database </h2>;
 return (
 <>
 	<div className="container">
@@ -37,18 +40,17 @@ return (
 				</tr>
 			</thead>
 			<tbody>
-				{toppings.map((update) => (
+				{toppings.map((toppings) => (
 					<tr>
-						<td> {update.type} </td>
+						<td> {toppings.type} </td>
 						<td>
 							<form>
 								<input
 								required
 								type='text'
-								>
-								</input>
-								<button type='button'
-								onClick={() => handleUpdateToppings(toppings)}>Update </button>
+								onChange ={(e) => setTopping(e.target.value)}
+								/>
+								<button type='button' onClick={() => handleUpdateToppings(toppings.id, topping)}>Update </button>
 							</form>
 						</td>
 					</tr>
