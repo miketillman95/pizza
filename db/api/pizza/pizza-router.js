@@ -50,6 +50,7 @@ router.post('/', (req, res) => {
 
 // works
 router.delete('/:id', (req, res) => {
+    console.log(req.params)
     Pizza.remove(req.params.id)
     .then(count => {
         if (count > 0) {

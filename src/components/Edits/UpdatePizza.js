@@ -7,13 +7,14 @@ const [pizzas, setPizzas] = useState([]);
 const [typeOfPizza, setTypeOfPizza] = useState("")
 
 const apiEndPoint = "http://localhost:3010/api/pizza";
-	useEffect(() => {
+
+useEffect(() => {
 	const getPizza = async () => {
-		const { data: res } = await axios.get(apiEndPoint, {type:pizzas});
-		setPizzas(res);
-		};
-		getPizza();
-	}, []);
+	const { data: res } = await axios.get(apiEndPoint, {type:pizzas});
+	setPizzas(res);
+	};
+	getPizza();
+}, []);
 
 
 

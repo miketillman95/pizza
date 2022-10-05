@@ -26,13 +26,9 @@ Your project should be deployed to a service of your choice. If you need some re
 '
 commands:
 npx knex migrate:make 
-migrate:rollback
+migrate:rollback/latesr
 
 npx knex seed:run
 
-
-tried launching the BE seperately from the FE but errors occured.
-
-tried launching the whole app which succeeded, but the BE API wasnt present
 
 npm i to run

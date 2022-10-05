@@ -23,12 +23,13 @@ try{
 
 
 
-const handleDeleteToppings = async  (toppingsId) => {
-	console.log(toppingsId)
+const handleDeleteToppings = async  (id) => {
+// if (id != id.type) return alert('This topping does not exist in the Db') or return 404 message from route
+	console.log(id)
 	try{
-		const res = await axios.delete(`http://localhost:3010/api/topping` + '/' + toppingsId, {type: deleteType})
+		const res = await axios.delete('http://localhost:3010/api/topping' + '/' + id, {type: deleteType})
 		console.log(res.data)
-		// navigate('/owner')
+		navigate('/owner')
 	} catch(err){
 		console.log(err.response)
 	}

@@ -29,6 +29,7 @@ async function add(pizza){
 }
 
 const remove = (id) =>{
+	console.log('deelte id', id)
     return db('pizza')
     .where({id})
     .del()
