@@ -9,11 +9,12 @@ const EditToppings = () => {
 const [type, setType] = useState('')
 const [deleteType, setDeletetype] = useState('')
 const navigate = useNavigate()
+const apiEndPoint ="http://localhost:3010/api/toppings"
 
 const handleAddToppings = async (e) => {
 e.preventDefault()
 try{
-	const res = await axios.post("http://localhost:3010/api/toppings", {type:type})
+	const res = await axios.post(apiEndPoint, {type:type})
 	console.log(res.data)
 	navigate('/owner')
 } catch(err){
@@ -27,7 +28,7 @@ const handleDeleteToppings = async  (id) => {
 // if (id != id.type) return alert('This topping does not exist in the Db') or return 404 message from route
 	console.log(id)
 	try{
-		const res = await axios.delete('http://localhost:3010/api/topping' + '/' + id, {type: deleteType})
+		const res = await axios.delete( apiEndPoint + '/' + id, {type: deleteType})
 		console.log(res.data)
 		navigate('/owner')
 	} catch(err){

@@ -11,13 +11,14 @@ const [deleteType, setDeletetype] = useState('')
 const [pizzaToppings, setPizzaToppings] = useState('')
 const [error, setError] = useState('')
 const navigate = useNavigate()
+const apiEndPoint ="http://localhost:3010/api/pizza"
 
 
 const handleAddNewPizza = async (e) => {
 	e.preventDefault()
 	console.log(type, pizzaToppings )
 	try{
-	const res = await axios.post("http://localhost:3010/api/pizza", {type:type, toppings: pizzaToppings })
+	const res = await axios.post(apiEndPoint, {type:type, toppings: pizzaToppings })
 
 	console.log(res)
 
@@ -25,26 +26,25 @@ const handleAddNewPizza = async (e) => {
 	navigate('/chef')
 } catch(err){
 
-	console.log(err.response)
+	console.log(err)
 }
 }
 
 
 
 
-const handleDeletePizza = async  (id,e) => {
-e.preventDefault()
-console.log(e)
+const handleDeletePizza = async  ( pizzaId, deleteTypeOfPizza) => {
+console.log(pizzaId)
 
 
-// try{
-// 	const res = await axios.delete(`http://localhost:3010/api/pizza/${id}`, {type: deleteType})
-// 	console.log(res.data)
-// 	navigate('/chef')
-// } catch(err){
+try{
+	const res = await axios.delete(apiEndPoint, + "/" + pizzaId, {type: deleteTypeOfPizza})
+	console.log(res.data)
+	navigate('/chef')
+} catch(err){
 
-// 	setError(console.log(err.response))
-// }
+	setError(console.log(err.data))
+}
 
 }
 
@@ -73,33 +73,16 @@ return (
 	</div>
 
 	<div className='delete-pizza'>
-		<form onSubmit={handleDeletePizza}>
-			<label>delete pizza</label><br/>
-			<input 
-			required
-			type='text'
-			value={deleteType}
-			onChange={(e) => setDeletetype(e.target.value)}
-			/>
-			<button onClick={() => handleDeletePizza()} type='submit'>Delete</button>
+		<form>
+		<label>delete pizza</label><br/>
+		<input 
+		required
+		type='text'
+		onChange={(e) => setDeletetype(e.target.value)}
+		/>
+		<button onClick={(e) => handleDeletePizza(e.id, deleteType)} type='button'>Delete</button>
 		</form>
 	</div>
-
-	{/* <div>
-	<form onSubmit={handleAddPizza}>
-	<label>Add toppings</label><br/>
-
-
-	<input
-	required
-	type='text'
-	value={toppings}
-	onChange={(e) => setToppings(e.target.value)}
-	/>
-	<button>Add</button>
-	</form>
-	</div>
-	<br/> */}
 
 	<br/>
 	<Link to='/updatepizza'> Update Pizza</Link>

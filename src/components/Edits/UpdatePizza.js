@@ -14,12 +14,12 @@ useEffect(() => {
 	setPizzas(res);
 	};
 	getPizza();
-}, []);
+}, [pizzas]);
 
 
 
 const handleUpdatePizza = async (pizzaId, updatedtypeOfPizza) => {
-if(!updatedtypeOfPizza) return
+if(!updatedtypeOfPizza) return alert('Must enter a pizza')
     console.log(pizzas.id)
 	console.log(pizzaId)
     const results = await axios.put(apiEndPoint + "/" + pizzaId, {type: updatedtypeOfPizza});
