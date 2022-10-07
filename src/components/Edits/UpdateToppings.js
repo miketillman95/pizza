@@ -27,6 +27,18 @@ if (!updatedTopping) return
 	window.location.reload()
 };
 
+const handleDeleteToppings = async  (id) => {
+	// if (id != id.type) return alert('This topping does not exist in the Db') or return 404 message from route
+		console.log(id)
+		try{
+			const res = await axios.delete( apiEndPoint + '/' + id)
+			console.log(res.data)
+			// navigate('/owner')
+		} catch(err){
+			console.log(err.response)
+		}
+	
+}
 
 
 if (toppings.length === 0) return <h2> Toppings are loading or if issue persist check database </h2>;
@@ -52,6 +64,7 @@ return (
 								onChange ={(e) => setTopping(e.target.value)}
 								/>
 								<button type='button' onClick={() => handleUpdateToppings(toppings.id, topping)}>Update </button>
+								<button type= 'button' onClick={() => handleDeleteToppings(toppings.id)}> Delete </button>
 							</form>
 						</td>
 					</tr>

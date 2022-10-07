@@ -7,9 +7,7 @@ import axios from 'axios'
 
 const EditPizza = () => {
 const [type, setType] = useState('')
-const [deleteType, setDeletetype] = useState('')
 const [pizzaToppings, setPizzaToppings] = useState('')
-const [error, setError] = useState('')
 const navigate = useNavigate()
 const apiEndPoint ="http://localhost:3010/api/pizza"
 
@@ -33,20 +31,7 @@ const handleAddNewPizza = async (e) => {
 
 
 
-const handleDeletePizza = async  ( pizzaId, deleteTypeOfPizza) => {
-console.log(pizzaId)
 
-
-try{
-	const res = await axios.delete(apiEndPoint, + "/" + pizzaId, {type: deleteTypeOfPizza})
-	console.log(res.data)
-	navigate('/chef')
-} catch(err){
-
-	setError(console.log(err.data))
-}
-
-}
 
 return (
 <div className ='edit-pizza-container'>
@@ -69,18 +54,6 @@ return (
 			<br/>
 			<br/>
 			<button type='submit'>submit Pizza</button>
-		</form>
-	</div>
-
-	<div className='delete-pizza'>
-		<form>
-		<label>delete pizza</label><br/>
-		<input 
-		required
-		type='text'
-		onChange={(e) => setDeletetype(e.target.value)}
-		/>
-		<button onClick={(e) => handleDeletePizza(e.id, deleteType)} type='button'>Delete</button>
 		</form>
 	</div>
 
