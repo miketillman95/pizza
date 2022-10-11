@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
 
 const UpdatePizza = () => {
 const [toppings, setToppings] = useState([]);
@@ -17,7 +18,7 @@ useEffect(() => {
 
 
 const handleUpdateToppings = async (toppingsId, updatedTopping) => {
-if (!updatedTopping) return
+if (!updatedTopping) return alert('Must enter a Topping')
 	const results = await axios.put(apiEndPoint + '/' + toppingsId, {type: updatedTopping})
 	console.log(results)
 	const toppingClone = [...toppings]
@@ -28,12 +29,10 @@ if (!updatedTopping) return
 };
 
 const handleDeleteToppings = async  (id) => {
-	// if (id != id.type) return alert('This topping does not exist in the Db') or return 404 message from route
 		console.log(id)
 		try{
 			const res = await axios.delete( apiEndPoint + '/' + id)
 			console.log(res.data)
-			// navigate('/owner')
 		} catch(err){
 			console.log(err.response)
 		}
@@ -63,8 +62,8 @@ return (
 								type='text'
 								onChange ={(e) => setTopping(e.target.value)}
 								/>
-								<button type='button' onClick={() => handleUpdateToppings(toppings.id, topping)}>Update </button>
-								<button type= 'button' onClick={() => handleDeleteToppings(toppings.id)}> Delete </button>
+								<Button variant = 'secondary'type='Button' onClick={() => handleUpdateToppings(toppings.id, topping)}>Update </Button>{' '}
+								<Button variant = 'danger'type= 'Button' onClick={() => handleDeleteToppings(toppings.id)}> Delete </Button>
 							</form>
 						</td>
 					</tr>

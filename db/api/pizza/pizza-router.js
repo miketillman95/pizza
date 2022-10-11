@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
         res.status(200).json({
         message: error
         });
-  });
+});
 }) // return the added item object
 
 // works
@@ -67,13 +67,13 @@ router.delete('/:id', (req, res) => {
         res.status(500).json({
         message: 'Error removing the item',
         });
-  });
+});
 })
 
 // works
 router.put('/:id', (req, res) => {
     console.log(req.body)
-   const changes = req.body
+    const changes = req.body
     Pizza.update(req.params.id, changes)
     .then(pizza => {
         if(pizza) {

@@ -1,8 +1,9 @@
 .title-head{
+    text-decoration: none;
     display: inline-flex;
     flex-wrap: wrap;
     gap: 110px;
     font-size: 25px;
     margin-top: 40px;
-    text-decoration: none;
+    font-family: cursive;
 }

@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Button from 'react-bootstrap/Button';
+
 
 const UpdatePizza = () => {
 
@@ -68,8 +70,8 @@ return (
 										type='text'
 										onChange={(e) => setTypeOfPizza(e.target.value)}
 										/>
-									<button type= 'button' onClick={() => handleUpdatePizza(pizza.id, typeOfPizza)}> Update </button>
-									<button type= 'button' onClick={() => handleDeletePizza(pizza.id)}> Delete </button>
+									<Button variant= 'secondary' type= 'Button' onClick={() => handleUpdatePizza(pizza.id, typeOfPizza)}> Update </Button>{' '}
+									<Button variant= 'danger' type= 'Button' onClick={() => handleDeletePizza(pizza.id)}> Delete </Button>
 									</form>
 								</td>
 						</tr>

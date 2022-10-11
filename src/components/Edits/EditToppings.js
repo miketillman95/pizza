@@ -38,7 +38,7 @@ return (
 				type='text'
 				onChange={(e) => setType(e.target.value)}
 				/>
-				<Button variant='primary'  size='sm' type='submit'>Add</Button>
+				<Button variant='success'  size='sm' type='submit'>Add</Button>
 			</form>
 		</div>
 		<br/>
