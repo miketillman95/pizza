@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
             res.status(200).json({pizza})
         } else {
             res.status(404).json({
-                message: 'Recipe not found'
+                message: 'Pizza not found'
             })
         }
     })
@@ -55,11 +55,11 @@ router.delete('/:id', (req, res) => {
     .then(count => {
         if (count > 0) {
             res.status(200).json({
-                message: 'Recipe has been removed'
+                message: 'Pizza has been removed'
             }) 
         } else {
             res.status(404).json({
-                message: 'Recipe cannot be found'
+                message: 'Pizza cannot be found'
             })
         }
     })
@@ -78,11 +78,11 @@ router.put('/:id', (req, res) => {
     .then(pizza => {
         if(pizza) {
             res.status(200).json({
-                message: 'Recipe has been updated'
+                message: 'Pizza has been updated'
             })
         } else {
             res.status(404).json({
-                message: 'Recipe could not be found'
+                message: 'Pizza could not be found'
             })
         }
     })

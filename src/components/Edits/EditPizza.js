@@ -10,20 +10,37 @@ import Button from 'react-bootstrap/Button';
 const EditPizza = () => {
 const [type, setType] = useState('')
 const [pizzaToppings, setPizzaToppings] = useState('')
+const [checkType, setCheckType] = useState ([])
 const navigate = useNavigate()
 const apiEndPoint ="http://localhost:3010/api/pizza"
 
 
+async function  getPizza() {
+	const {data: res} = await axios.get(apiEndPoint, {type:type})
+	console.log('api res', res)
+	setCheckType(res)
+	const duplicates = checkType.filter((item, index) => index !== checkType.indexOf(item));
+	console.log('duplicates', duplicates)
+	return duplicates
+}
+
+
 const handleAddNewPizza = async (e) => {
 	e.preventDefault()
-	console.log(type, pizzaToppings )
-	try {
-		const res = await axios.post(apiEndPoint, {type:type, toppings: pizzaToppings })
-		console.log(res)
-		navigate('/chef')
-	} catch(err) {
-		console.log(err)
-	}
+		if (getPizza() === true ){
+		console.log(getPizza)
+		return alert('This pizza name already exist')
+
+		} else {
+			try {
+				const res = await axios.post(apiEndPoint, {type:type, toppings: pizzaToppings })
+				console.log(res)
+				// navigate('/chef')
+			} catch(err) {
+				console.log(err)
+			}
+
+		}
 }
 
 
@@ -51,7 +68,7 @@ return (
 			/>
 			<br/>
 			<br/>
-			<Button variant='secondary' type='submit'>Create New Pizza</Button>
+			<Button variant='success' type='submit'>Create New Pizza</Button>
 		</form>
 	</div>
 

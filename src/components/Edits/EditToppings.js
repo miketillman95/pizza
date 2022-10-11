@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button';
 
 const EditToppings = () => {
 const [type, setType] = useState('')
-const [deleteType, setDeletetype] = useState('')
 const navigate = useNavigate()
 const apiEndPoint ="http://localhost:3010/api/toppings"
 
