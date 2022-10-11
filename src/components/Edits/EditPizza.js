@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
+import Button from 'react-bootstrap/Button';
+
 
 
 
@@ -15,17 +17,13 @@ const apiEndPoint ="http://localhost:3010/api/pizza"
 const handleAddNewPizza = async (e) => {
 	e.preventDefault()
 	console.log(type, pizzaToppings )
-	try{
-	const res = await axios.post(apiEndPoint, {type:type, toppings: pizzaToppings })
-
-	console.log(res)
-
-
-	navigate('/chef')
-} catch(err){
-
-	console.log(err)
-}
+	try {
+		const res = await axios.post(apiEndPoint, {type:type, toppings: pizzaToppings })
+		console.log(res)
+		navigate('/chef')
+	} catch(err) {
+		console.log(err)
+	}
 }
 
 
@@ -35,7 +33,7 @@ const handleAddNewPizza = async (e) => {
 
 return (
 <div className ='edit-pizza-container'>
-	<h2>Create new pizza</h2>
+	<h2>Pizza Creation</h2>
 	<div className='add-edit-pizza'>
 		<form onSubmit={handleAddNewPizza}>
 			<label>Add pizza name</label><br/>
@@ -53,12 +51,12 @@ return (
 			/>
 			<br/>
 			<br/>
-			<button type='submit'>submit Pizza</button>
+			<Button variant='secondary' type='submit'>Create New Pizza</Button>
 		</form>
 	</div>
 
 	<br/>
-	<Link to='/updatepizza'> Update Pizza</Link>
+	<Link  style={{color: 'black'}} to='/updatepizza'><Button variant='secondary' type='submit'>Update Pizza</Button></Link>
 
 </div>
 )

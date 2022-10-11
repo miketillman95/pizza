@@ -1,6 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+
 
 export default function Owner () {
 const [toppings, setToppings] = useState(null);
@@ -51,7 +53,7 @@ return (
 		</ul>
 	</div>
 	<br/>
-	<Link to='/edittoppings'><button>Edit the toppings</button></Link> 
+	<Link to='/edittoppings'><Button variant='secondary'>Edit the toppings</Button></Link> 
 </div>
 );
 }

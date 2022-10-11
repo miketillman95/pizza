@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import './../Home.css'
+import Badge from 'react-bootstrap/Badge';
+
 
 const Home = () => {
   return (
@@ -9,9 +11,9 @@ const Home = () => {
         <section>
             <div className='header-container'>
                 <div className='title-head'>
-                    <Link to='/owner'> Pizza Owner</Link>
+                    <Link style={{color: 'black'}}to='/owner'> Pizza Owner</Link>
                     <br/>
-                    <Link to='/chef'> Pizza chef</Link>
+                    <Link  style={{color: 'black'}} to='/chef'> Pizza chef</Link>
                 </div>
             </div>
         </section>

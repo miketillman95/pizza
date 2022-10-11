@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios'
+import Button from 'react-bootstrap/Button';
+
 
 
 
@@ -24,18 +26,6 @@ try{
 
 
 
-const handleDeleteToppings = async  (id) => {
-// if (id != id.type) return alert('This topping does not exist in the Db') or return 404 message from route
-	console.log(id)
-	try{
-		const res = await axios.delete( apiEndPoint + '/' + id, {type: deleteType})
-		console.log(res.data)
-		navigate('/owner')
-	} catch(err){
-		console.log(err.response)
-	}
-
-}
 
 return (
 	<div className ='edit-topping container'>
@@ -48,24 +38,11 @@ return (
 				type='text'
 				onChange={(e) => setType(e.target.value)}
 				/>
-				<button type='submit'>Add</button>
+				<Button variant='primary'  size='sm' type='submit'>Add</Button>
 			</form>
 		</div>
-
-		<div>
-		<form onSubmit={handleDeleteToppings}>
-			<label>delete toppings</label><br/>
-			<input 
-			required
-			type='text'
-			onChange={(e) => setDeletetype(e.target.value)}
-			/>
-			<button type='submit'>Delete</button>
-			</form>
 		<br/>
-		<Link to='/updatetoppings'> Update Toppings</Link>
-
-		</div>
+		<Link style={{color: 'black'}} to='/updatetoppings'> <Button variant='secondary' size='sm' type='submit'>Update Toppings</Button></Link>
 	</div>
 )
 }

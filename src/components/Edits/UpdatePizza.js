@@ -34,12 +34,11 @@ if(!updatedtypeOfPizza) return alert('Must enter a pizza')
 };
 
 const handleDeletePizza = async  (id) => {
-	// if (id != id.type) return alert('This topping does not exist in the Db') or return 404 message from route
 		console.log(id)
 		try{
 			const res = await axios.delete( apiEndPoint + '/' + id)
 			console.log(res.data)
-			// navigate('/owner')
+			
 		} catch(err){
 			console.log(err.response)
 		}
@@ -55,7 +54,7 @@ return (
 			<table className="table">
 				<thead>
 					<tr>
-					<th>type</th>
+					<th>Type of pizza</th>
 					<th>Update</th>
 					</tr>
 				</thead>

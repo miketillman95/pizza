@@ -1,11 +1,9 @@
-*{
-    max-width: 500px;
-    margin: auto;
-    font-family: 'Courier New', monospace;      
-    color: black;
+.navbar-header{
 
-  
+    font-family: 'Courier New', monospace;  
+	font-weight: 900;    
 }
+
 h2{
     margin-top: 40px;
     margin-bottom:40px
@@ -20,14 +18,12 @@ body{
     margin-top: 30px;
 }
 
-ul{
-    background-color: rgb(215, 55, 55);
-    color: beige;
-    border-radius: 5%;
-    /* display: inline-flex; */
-    /* justify-content: flex-start; */
-}
-
 footer{
     border-bottom-color: black;
+}
+
+.app-wrap{
+	max-width: 500px;
+	margin: auto;
+	font-weight: 200px;
 }
