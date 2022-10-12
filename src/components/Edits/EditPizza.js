@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import Button from 'react-bootstrap/Button';
+import '../../index.css'
+
 
 
 
@@ -54,21 +56,21 @@ return (
 	<div className='add-edit-pizza'>
 		<form onSubmit={handleAddNewPizza}>
 			<label>Add pizza name</label><br/>
-			<input 
-			required
-			type='text'
-			onChange={(e) => setType(e.target.value)}
-			/>
-			<br/>
-			<label>Add toppings to pizza</label><br/>
-			<input 
-			required
-			type='text'
-			onChange={(e) => setPizzaToppings(e.target.value)}
-			/>
-			<br/>
-			<br/>
-			<Button variant='success' type='submit'>Create New Pizza</Button>
+				<input 
+				required
+				type='text'
+				onChange={(e) => setType(e.target.value)}
+				/>
+				<br/>
+				<label>Add toppings to pizza</label><br/>
+				<input 
+				required
+				type='text'
+				onChange={(e) => setPizzaToppings(e.target.value)}
+				/>
+				<br/>
+				<br/>
+				<Button variant='success' type='submit'>Create New Pizza</Button>
 		</form>
 	</div>
 

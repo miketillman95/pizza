@@ -68,12 +68,12 @@ router.delete('/:id', (req, res) => {
         res.status(500).json({
         message: 'Error removing the item',
         });
-  });
+});
 })
 
 // works
 router.put('/:id', (req, res) => {
-   const changes = req.body
+    const changes = req.body
     Toppings.update(req.params.id, changes)
     .then(toppings => {
         if(toppings) {

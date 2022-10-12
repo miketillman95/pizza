@@ -79,16 +79,16 @@ if (pizzas.length === 0) return <h2> Pizzas are loading or if problem consist se
 return (
 	<>
 		<div className="pizza-container">
-			<table className="table">
+			<table class="table">
 				<thead>
 					<tr>
-					<th>Type of pizza</th>
-					<th>Update</th>
+					<th scope='col'>Type of pizza</th>
+					<th scope='col'>Update the pizza</th>
 					</tr>
 				</thead>
 				<tbody>
 						{pizzas.map((pizza) => (
-						<tr>
+						<tr scope='row'>
 							<td> {pizza.type} </td>
 								<td>
 									<form>
@@ -112,8 +112,8 @@ return (
 				<thead>
 					<tr>
 					<th>Type of pizza</th>
-					<th>Type of toppings</th>
-					<th>Update</th>
+					<th>The toppings</th>
+					<th>Update the toppings </th>
 					</tr>
 				</thead>
 				<tbody>
@@ -127,8 +127,8 @@ return (
 										type='text'
 										onChange={(e) => setTypeOfToppings(e.target.value)}
 										/>
-									<Button variant= 'secondary' type= 'Button' onClick={() => handleUpdateToppings(pizza.id, typeOfToppings)}> Update </Button>{' '}
-									<Button variant= 'danger' type= 'Button' onClick={() => handleDeleteToppings(pizza.id)}> Delete </Button>
+										<Button variant= 'secondary' size= 'sm' type= 'Button' onClick={() => handleUpdateToppings(pizza.id, typeOfToppings)}> Update </Button>{' '}
+										<Button variant= 'danger' size= 'sm'type= 'Button' onClick={() => handleDeleteToppings(pizza.id)}> Delete </Button>
 									</form>
 								</td>
 						</tr>

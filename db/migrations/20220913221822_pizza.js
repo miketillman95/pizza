@@ -8,7 +8,6 @@ exports.up = function(knex) {
       tbl.string('toppings', 100)
       tbl.boolean('buy_more')
       tbl.timestamps(true, true)
-  
     })
   };
 
