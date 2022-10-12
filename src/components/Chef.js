@@ -41,15 +41,13 @@ return (
 		<div>{`There is a problem fetching the post pizza - ${error}`}</div>
 	)}
 	<div className='pizza-display'>
-	<ul>
 		{pizza &&
 			pizza.map(({ id, type, toppings }) => (
-			<li key={id}>
-				<h3>{type}</h3>
-				<h3>{toppings}</h3>
-			</li>
+				<>
+					<h2 style={{color: '#9B0B0B'}}key={id}>{type}:</h2>
+					<h3 style={{fontFamily: 'fantasty'}}>{toppings}</h3><br/>
+				</>
 		))}
-	</ul>
 	</div>
 	<br/>
 	<Link to='/editpizza'><Button variant='secondary'>Edit the pizza</Button></Link> 
