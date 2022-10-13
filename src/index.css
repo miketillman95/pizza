@@ -29,6 +29,19 @@ footer{
 h2.pizza-display{
     color: red
 }
+.title-head{
+    margin-left: 170px;
+}
+
+.footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
 
 
 

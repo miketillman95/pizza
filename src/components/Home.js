@@ -10,12 +10,13 @@ const Home = () => {
         <section>
             <div className='header-container'>
                 <div className='title-head'>
-                    <Link style={{color: 'black'}}to='/owner'> Pizza Owner</Link>
+                    <Link style={{color: 'black', textDecoration:'underline'}}to='/owner'> Pizza Owner</Link>
                     <br/>
-                    <Link  style={{color: 'black'}} to='/chef'> Pizza chef</Link>
+                    <Link  style={{color: 'black', textDecoration:'underline'}} to='/chef'> Pizza chef</Link>
                 </div>
             </div>
         </section>
+        <img className='pizza' src="https://ciaoflorentina.com/wp-content/uploads/2011/01/Rustic-Pizza-Dough-11.jpg" alt='brown pizza'/>
     </div>
   )
 }
