@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "migrate": "npx knex migrate:latest  db/knexfile.js",
-    "server": "node index.js"
+    "server": "node server.js"
   },
   "eslintConfig": {
     "extends": [

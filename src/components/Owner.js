@@ -48,7 +48,6 @@ return (
 				
 				<h3 key={id}>{type}</h3>
 			))}
-	
 	</div>
 	<br/>
 	<Link to='/edittoppings'><Button variant='secondary'>Edit the toppings</Button></Link> 
