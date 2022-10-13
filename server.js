@@ -15,6 +15,6 @@ server.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-server.listen(port, () => {
+server.listen(process.env.PORT, port, () => {
   console.log(process.env.PORT || `Example app listening on port ${port}`)
 })
