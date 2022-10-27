@@ -18,6 +18,9 @@ It should allow me to delete an existing pizza$
 It should allow me to update an existing pizza$
 It should allow me to update toppings on an existing pizza$
 It should not allow me to enter duplicate pizzas
+pass the existing toppings to the next component
+api call to check the list of pizza
+look up .sum
 
 
 Add styling

@@ -1,7 +1,6 @@
 const express = require('express')
 const server = express()
-const server_port = process.env.PORT || 3010;
-const server_host =  '0.0.0.0';
+const server_port = process.env.PORT || 5432;
 const cors = require('cors')
 const pizzaRouter = require('./db/api/pizza/pizza-router')
 const toppingsRouter = require('./db/api/toppings/toppings-router')
@@ -16,6 +15,6 @@ server.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-server.listen(server_port, server_host, () => {
+server.listen(server_port, () => {
   console.log('Listening on port %d', server_port)
 })
