@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 const EditToppings = () => {
 const [type, setType] = useState('')
 const navigate = useNavigate()
-const apiEndPoint ="http://localhost:3010/api/toppings"
+const apiEndPoint ="https://this-is-b.azurewebsites.net/api/toppings"
 
 const handleAddToppings = async (e) => {
 e.preventDefault()

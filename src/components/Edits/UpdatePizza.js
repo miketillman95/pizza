@@ -11,7 +11,7 @@ const [toppings, setToppings] = useState("")
 const [typeOfToppings, setTypeOfToppings] = useState('')
 
 
-const apiEndPoint = "http://localhost:3010/api/pizza";
+const apiEndPoint = "https://this-is-b.azurewebsites.net/api/pizza";
 
 useEffect(() => {
 	const getPizza = async () => {

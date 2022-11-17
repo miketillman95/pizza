@@ -10,7 +10,7 @@ const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 
 useEffect(() => {
-	fetch("http://localhost:3010/api/pizza")
+	fetch("https://this-is-b.azurewebsites.net/api/pizza")
 		.then((response) => {
 			if (!response.ok) {
 			throw new Error(

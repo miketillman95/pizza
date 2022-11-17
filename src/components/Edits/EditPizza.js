@@ -14,7 +14,7 @@ const [type, setType] = useState('')
 const [pizzaToppings, setPizzaToppings] = useState('')
 const [checkType, setCheckType] = useState ([])
 const navigate = useNavigate()
-const apiEndPoint ="http://localhost:3010/api/pizza"
+const apiEndPoint ="https://this-is-b.azurewebsites.net/api/pizza"
 
 
 async function  getPizza() {

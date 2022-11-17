@@ -7,7 +7,7 @@ const [toppings, setToppings] = useState([]);
 const [topping, setTopping] = useState("")
 
 
-const apiEndPoint = "http://localhost:3010/api/toppings";
+const apiEndPoint = "https://this-is-b.azurewebsites.net/api/toppings";
 useEffect(() => {
 	const getToppings = async () => {
 		const { data: res } = await axios.get(apiEndPoint, {type:toppings});
