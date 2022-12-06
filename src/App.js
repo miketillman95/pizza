@@ -17,9 +17,7 @@ return (
 			<Navbar.Brand href="/">Home</Navbar.Brand>
 				<Nav className="me-auto">
 				<Nav.Link href="/owner">Pizza Owner(Toppings)</Nav.Link>
-				<Nav.Link href="/edittoppings">Edit toppings</Nav.Link>
 				<Nav.Link href="/chef">Pizza Chef(Pizza)</Nav.Link>
-				<Nav.Link href="/editpizza">Edit Pizzas</Nav.Link>
 				</Nav>
 			</Container>
 		</Navbar>
@@ -28,9 +26,7 @@ return (
     <AppRouter/>
 	</div>
 	<Footer/>
-	{/* <div className='footer'>
-		<h3>Zia Lucia's!</h3>
-	</div> */}
+	
 </>
 
 );

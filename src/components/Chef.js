@@ -1,16 +1,24 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
+import axios from 'axios'
+
+import {pizzaData} from '../Data/pizzaData'
 
 
 export default function Owner () {
 const [pizza, setPizza] = useState(null);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
+const [type, setType] = useState('')
+const [pizzaToppings, setPizzaToppings] = useState('')
+const [checkType, setCheckType] = useState ([])
+const navigate = useNavigate()
+const apiEndPoint = "https://this-is-b.azurewebsites.net/api/pizza"
 
 useEffect(() => {
-	fetch("https://this-is-b.azurewebsites.net/api/pizza")
+	fetch(pizzaData)
 		.then((response) => {
 			if (!response.ok) {
 			throw new Error(
@@ -32,6 +40,35 @@ useEffect(() => {
 		});
 }, []);
 
+// checking for pizza in DB function
+async function  getPizza() {
+	const {data: res} = await axios.get(apiEndPoint, {type:type})
+	console.log('api res', res)
+	setCheckType(res)
+	const duplicates = checkType.filter((item, index) => index !== checkType.indexOf(item));
+	console.log('duplicates', duplicates)
+	return duplicates
+}
+
+
+const handleAddNewPizza = async (e) => {
+	e.preventDefault()
+		if (getPizza() === true ){
+		console.log(getPizza)
+		return alert('This pizza name already exist')
+
+		} else {
+			try {
+				const res = await axios.post(apiEndPoint, {type:type, toppings: pizzaToppings })
+				console.log(res)
+				// navigate('/chef')
+			} catch(err) {
+				console.log(err)
+			}
+
+		}
+}
+
 
 return (
 <div className="Owner">
@@ -50,7 +87,26 @@ return (
 		))}
 	</div>
 	<br/>
-	<Link to='/editpizza'><Button variant='secondary'>Edit the pizza</Button></Link> 
+	<form onSubmit={handleAddNewPizza}>
+			<label>Add pizza name</label><br/>
+				<input 
+				required
+				type='text'
+				onChange={(e) => setType(e.target.value)}
+				/>
+				<br/>
+				<label>Add toppings to pizza</label><br/>
+				<input 
+				required
+				type='text'
+				onChange={(e) => setPizzaToppings(e.target.value)}
+				/>
+				<br/>
+				<Button variant='success' type='submit'>Create New Pizza</Button>
+		</form>
+		<Link  style={{color: 'black'}} to='/updatepizza'><Button variant='secondary' type='submit'>Update Pizza</Button></Link>
+
+	
 </div>
 );
 }
