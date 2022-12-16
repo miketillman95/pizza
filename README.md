@@ -24,7 +24,7 @@ look up .sum
 
 
 Add styling
-mobile responsive
+
 
 Deployment
 Your project should be deployed to a service of your choice. If you need some references to free web resources for development try https://free-for.dev

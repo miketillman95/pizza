@@ -1,7 +1,7 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from './components/Home'
-import Owner from './components/Owner';
-import Chef from './components/Chef'
+import Home from './pages/Home'
+import Owner from './pages/Owner';
+import Chef from './pages/Chef'
 import UpdatePizza from './components/Edits/UpdatePizza'
 import UpdateToppings from './components/Edits/UpdateToppings'
 
