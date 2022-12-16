@@ -6,11 +6,11 @@ const UpdatePizza = () => {
 const [toppings, setToppings] = useState([]);
 const [topping, setTopping] = useState("")
 
-
+const localHost = "http://localhost:4000/api/toppings"
 const apiEndPoint = "https://this-is-b.azurewebsites.net/api/toppings";
 useEffect(() => {
 	const getToppings = async () => {
-		const { data: res } = await axios.get(apiEndPoint, {type:toppings});
+		const { data: res } = await axios.get(localHost, {type:toppings});
 		setToppings(res);
 		};
 		getToppings();
@@ -19,7 +19,7 @@ useEffect(() => {
 
 const handleUpdateToppings = async (toppingsId, updatedTopping) => {
 if (!updatedTopping) return alert('Must enter a Topping')
-	const results = await axios.put(apiEndPoint + '/' + toppingsId, {type: updatedTopping})
+	const results = await axios.put(localHost + '/' + toppingsId, {type: updatedTopping})
 	console.log(results)
 	const toppingClone = [...toppings]
 	const index = toppingClone.indexOf(toppings)
@@ -31,7 +31,7 @@ if (!updatedTopping) return alert('Must enter a Topping')
 const handleDeleteToppings = async  (id) => {
 		console.log(id)
 		try{
-			const res = await axios.delete( apiEndPoint + '/' + id)
+			const res = await axios.delete( localHost + '/' + id)
 			console.log(res.data)
 		} catch(err){
 			console.log(err.response)

@@ -15,10 +15,11 @@ const [type, setType] = useState('')
 const [pizzaToppings, setPizzaToppings] = useState('')
 const [checkType, setCheckType] = useState ([])
 const navigate = useNavigate()
+const localHost = "http://localhost:4000/api/pizza"
 const apiEndPoint = "https://this-is-b.azurewebsites.net/api/pizza"
 
 useEffect(() => {
-	fetch(pizzaData)
+	fetch(localHost)
 		.then((response) => {
 			if (!response.ok) {
 			throw new Error(
@@ -42,7 +43,7 @@ useEffect(() => {
 
 // checking for pizza in DB function
 async function  getPizza() {
-	const {data: res} = await axios.get(apiEndPoint, {type:type})
+	const {data: res} = await axios.get(localHost, {type:type})
 	console.log('api res', res)
 	setCheckType(res)
 	const duplicates = checkType.filter((item, index) => index !== checkType.indexOf(item));
@@ -59,7 +60,7 @@ const handleAddNewPizza = async (e) => {
 
 		} else {
 			try {
-				const res = await axios.post(apiEndPoint, {type:type, toppings: pizzaToppings })
+				const res = await axios.post(localHost, {type:type, toppings: pizzaToppings })
 				console.log(res)
 				// navigate('/chef')
 			} catch(err) {

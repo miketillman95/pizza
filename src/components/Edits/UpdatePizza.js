@@ -10,16 +10,16 @@ const [typeOfPizza, setTypeOfPizza] = useState("")
 const [toppings, setToppings] = useState("")
 const [typeOfToppings, setTypeOfToppings] = useState('')
 
-
-const apiEndPoint = "https://this-is-b.azurewebsites.net/api/pizza";
+const localHost = "http://localhost:4000/api/pizza"
+const apiEndPoint = "http://localhost:4000/api/pizza";
 
 useEffect(() => {
 	const getPizza = async () => {
-	const { data: res } = await axios.get(apiEndPoint, {type:pizzas});
+	const { data: res } = await axios.get(localHost, {type:pizzas});
 	setPizzas(res);
 	};
 	const getToppings = async () => {
-		const { data: res } = await axios.get(apiEndPoint, {toppings:toppings});
+		const { data: res } = await axios.get(localHost, {toppings:toppings});
 		setToppings(res);
 		};
 	getToppings()
@@ -29,7 +29,7 @@ useEffect(() => {
 
 const handleUpdateToppings = async (toppingsId, updatedTopping) => {
 	if (!updatedTopping) return alert('Must enter a Topping')
-		const results = await axios.put(apiEndPoint + '/' + toppingsId, {toppings: updatedTopping})
+		const results = await axios.put(localHost + '/' + toppingsId, {toppings: updatedTopping})
 		console.log(results)
 		const toppingClone = [...toppings]
 		const index = toppingClone.indexOf(toppings)
@@ -41,7 +41,7 @@ const handleUpdateToppings = async (toppingsId, updatedTopping) => {
 const handleDeleteToppings = async  (id) => {
 	console.log(id)
 	try{
-		const res = await axios.delete( apiEndPoint + '/' + id)
+		const res = await axios.delete( localHost + '/' + id)
 		console.log(res.data)
 	} catch(err){
 		console.log(err.response)
@@ -52,7 +52,7 @@ const handleUpdatePizza = async (pizzaId, updatedtypeOfPizza) => {
 	if(!updatedtypeOfPizza) return alert('Must enter a pizza')
 		console.log(pizzas.id)
 		console.log(pizzaId)
-		const results = await axios.put(apiEndPoint + "/" + pizzaId, {type: updatedtypeOfPizza});
+		const results = await axios.put(localHost + "/" + pizzaId, {type: updatedtypeOfPizza});
 		console.log(results)
 		const pizzaClone = [...pizzas];
 		const index = pizzaClone.indexOf(pizzas);
@@ -64,7 +64,7 @@ const handleUpdatePizza = async (pizzaId, updatedtypeOfPizza) => {
 const handleDeletePizza = async  (id) => {
 	console.log(id)
 	try{
-		const res = await axios.delete( apiEndPoint + '/' + id)
+		const res = await axios.delete( localHost + '/' + id)
 		console.log(res.data)
 		
 	} catch(err){

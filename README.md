@@ -32,13 +32,7 @@ Your project should be deployed to a service of your choice. If you need some re
 
 
 
-
+Working on deploying the server, for now can use local host to see the data
 '
 commands:
-npx knex migrate:make 
-migrate:rollback/latesr
-
-npx knex seed:run
-
-
 npm i to run

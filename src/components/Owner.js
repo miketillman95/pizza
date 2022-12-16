@@ -11,11 +11,12 @@ const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 const [type, setType] = useState('')
 const navigate = useNavigate()
+const localHost = "http://localhost:4000/api/toppings"
 const apiEndPoint ="https://this-is-b.azurewebsites.net/api/toppings"
 
 
 useEffect(() => {
-	fetch(apiEndPoint)
+	fetch(localHost)
 	.then((response) => {
 		if (!response.ok) {
 			throw new Error(
@@ -40,7 +41,7 @@ useEffect(() => {
 const handleAddToppings = async (e) => {
 	e.preventDefault()
 	try{
-		const res = await axios.post(apiEndPoint, {type:type})
+		const res = await axios.post(localHost, {type:type})
 		console.log(res.data)
 		navigate('/owner')
 	} catch(err){
