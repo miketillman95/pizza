@@ -41,7 +41,7 @@ useEffect(() => {
 		});
 }, []);
 
-// checking for pizza in DB function
+// working on checking for pizza in DB function
 async function  getPizza() {
 	const {data: res} = await axios.get(localHost, {type:type})
 	console.log('api res', res)
