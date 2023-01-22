@@ -23,16 +23,7 @@ api call to check the list of pizza
 look up .sum
 
 
-Add styling
+LESSON LEARNED FROM BUILDING THIS APPLICATION:
 
-
-Deployment
-Your project should be deployed to a service of your choice. If you need some references to free web resources for development try https://free-for.dev
-
-
-
-
-Working on deploying the server, for now can use local host to see the data
-'
-commands:
+Always run CI/CD early in the project,  was attempting to deploy but will not build on deployment and too many bugs to back track
 npm i to run
