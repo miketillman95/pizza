@@ -1,6 +1,6 @@
 LESSON LEARNED FROM BUILDING THIS APPLICATION:
 
-Have learned the importance of CI/CD on an application, been incrementally dbeugging the app but to no avail as of now, so addressing deployment bugs. 
+Have learned the importance of CI/CD on an application, been incrementally addressing the deployment bugs. 
 
 
 npm i to run the application, the frontend and backend works perfectly(locally). The link to the server for this application is https://github.com/miketillman95/this-is-b 
