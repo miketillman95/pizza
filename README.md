@@ -1,9 +1,11 @@
-LESSON LEARNED FROM BUILDING THIS APPLICATION:
+DEBUGGING DEPLOYMENT ISSUES, IMPORTANT LESSON TO LEARN FOR FUTURE PROJECTS:
 
-Have learned the importance of CI/CD on an application, been incrementally addressing the deployment bugs. 
+During the time of spending many hours developing this application  I have learned the importance of CI/CD on an application. I have gone through an array of deployment sites still working on debugging. I still like to display this project while debugging the deployment to show learning/success is not linear and it is a (long)process :)
 
 
 npm i to run the application, the frontend and backend works perfectly(locally). The link to the server for this application is https://github.com/miketillman95/this-is-b 
+
+
 
 Manage Toppings
 As a pizza store owner I should be able to manage toppings available for my pizza chefs.
